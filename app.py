@@ -3,7 +3,6 @@ import speech_recognition as sr
 from pydub import AudioSegment
 import os
 
-
 app = Flask(__name__, template_folder='templates')
 app.app_context().push()
 
@@ -19,14 +18,13 @@ def index():
 
         file = request.files["file"]
         file_ext = file.filename.split(".")[-1]
-        print(file_ext)
         if file.filename == "":
             return redirect(request.url)
 
         if file:
             if file_ext == "mp3":
-                p = os.path.abspath(file.filename)
-                audio = AudioSegment.from_mp3(p)
+                path_mp3file = os.path.abspath(file.filename)
+                audio = AudioSegment.from_mp3(path_mp3file)
                 audio.export("temp", format="wav")
                 file = "temp"
             recognizer = sr.Recognizer()
