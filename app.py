@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import speech_recognition as sr
 
 app = Flask(__name__, template_folder='templates')
+app.app_context().push()
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -25,7 +26,3 @@ def index():
             transcript = recognizer.recognize_google(data, key=None)
 
     return render_template('index.html', transcript=transcript)
-
-
-if __name__ == "__main__":
-    app.run(debug=True, threaded=True)
