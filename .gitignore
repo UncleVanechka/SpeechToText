@@ -39,11 +39,8 @@ Thumbs.db
 *.exe
 *.war
 venv
-text
 temp
-mp3
-audio_chunks
-
+text/
 # Large media files
 *.mp4
 *.tiff
