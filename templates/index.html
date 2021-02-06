@@ -22,9 +22,7 @@
         </div>
         <div id="speechDownloadContainer">
             <form method="post" enctype="multipart/form-data">
-                <input type="file" name="filename"/>
-                <br>
-                <input type="submit" id="submitButton" value="Скачать"/>
+                <p><a href="{{ url_for('download') }}">Скачать текстовый файл</a></p>
             </form>
         </div>
     {% endif %}
