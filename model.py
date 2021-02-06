@@ -9,7 +9,7 @@ import codecs
 
 def delete_files(path):
     """
-    Delete all waves from repository for chunks
+    Delete all files from repository
     """
     files = glob.glob(path)
     for f in files:
@@ -35,7 +35,7 @@ def get_large_audio_transcription(path):
                               # keep the silence for 1 second, adjustable as well
                               keep_silence=600,
                               )
-    folder_name = "audio_chunks"
+    folder_name = "repository/audio_chunks"
     # create or choose a directory to store the audio chunks
     if not os.path.isdir(folder_name):
         os.mkdir(folder_name)
@@ -68,7 +68,7 @@ def create_txt_file(content):
         Creating txt file and loading
         all content from audio into it
     """
-    folder_name = "text"
+    folder_name = "repository/text"
     # create or choose a directory to store the audio chunks
     if not os.path.isdir(folder_name):
         os.mkdir(folder_name)
@@ -81,3 +81,4 @@ def create_txt_file(content):
         fp.write(content)
     finally:
         fp.close()
+

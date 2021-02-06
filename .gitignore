@@ -41,6 +41,8 @@ Thumbs.db
 venv
 text
 temp
+mp3
+audio_chunks
 
 # Large media files
 *.mp4

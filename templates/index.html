@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Аудио распознавания на Python</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
 </head>
 <body>
 <div id="speechContainer">
@@ -16,10 +16,17 @@
     </form>
 
     {% if transcript != "" %}
-    <div id="speechTranscriptContainer">
-        <h1>Перевести</h1>
-        <p id="speechText">{{ transcript }}</p>
-    </div>
+        <div id="speechTranscriptContainer">
+            <h1>Перевести</h1>
+            <p id="speechText">{{ transcript }}</p>
+        </div>
+        <div id="speechDownloadContainer">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="filename"/>
+                <br>
+                <input type="submit" id="submitButton" value="Скачать"/>
+            </form>
+        </div>
     {% endif %}
 </div>
 
