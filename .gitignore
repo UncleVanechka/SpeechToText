@@ -40,6 +40,7 @@ Thumbs.db
 *.war
 venv
 temp
+repository
 text/
 # Large media files
 *.mp4

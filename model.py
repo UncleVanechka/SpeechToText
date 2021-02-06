@@ -69,7 +69,7 @@ def create_txt_file(content):
         all content from audio into it
     """
     folder_name = "repository/text"
-    # create or choose a directory to store the audio chunks
+    # create or choose a directory to store the audio texts
     if not os.path.isdir(folder_name):
         os.mkdir(folder_name)
 

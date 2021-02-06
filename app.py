@@ -36,6 +36,12 @@ def index():
             return redirect(request.url)
 
         filename = secure_filename(file.filename)
+
+        if not os.path.isdir(Config.ROOT_NAME):
+            os.mkdir(Config.ROOT_NAME)
+            if not os.path.isdir(Config.MP3_NAME):
+                os.mkdir(Config.MP3_NAME)
+
         file.save(os.path.join(Config.UPLOAD_FOLDER, filename))
 
         if file:
