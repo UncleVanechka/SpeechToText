@@ -1,9 +1,10 @@
 import os
+import glob
 
 from flask import Flask, render_template, request, redirect
 from pydub import AudioSegment
 from werkzeug.utils import secure_filename
-from flask import send_from_directory
+from flask import send_file
 
 from model import get_large_audio_transcription, delete_files, create_txt_file
 from config import Config
@@ -12,10 +13,11 @@ app = Flask(__name__, template_folder='templates')
 app.config.from_object(Config)
 app.app_context().push()
 
-
-@app.route('/download/<filename>')
-def download(filename):
-    return send_from_directory('repository/text/', filename=filename)
+@app.route('/download')
+def download():
+    txts = glob.glob('repository/text/*.txt')
+    for txt in txts:
+        return send_file(txt,as_attachment=True)
 
 
 @app.route("/", methods=["GET", "POST"])
