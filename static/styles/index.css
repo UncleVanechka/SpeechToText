@@ -1,4 +1,5 @@
 h1, p, input {
+    color: white;
     font-family: 'Lato', sans-serif;
 }
 
@@ -8,7 +9,6 @@ h1, p, input {
     width: 450px; /* Ширина элемента в пикселах */
     padding: 10px; /* Поля вокруг текста */
     margin: auto; /* Выравниваем по центру */
-    background: #CDDDFE; /* Цвет фона */
 }
 
 #submitButton {
@@ -40,7 +40,8 @@ html {
 body {
     position: relative;
     min-height: 100%;
-    background: #DCF4FF url(misis.svg) no-repeat; /* Путь к фоновому изображению */
+    background: linear-gradient(45deg, rgba(103, 0, 31, .8), rgba(34, 101, 163, .5)), url(https://html5book.ru/wp-content/uploads/2016/12/photo-8.jpg);
+    background-size: cover;
 }
 
 #speechDownloadContainer {
