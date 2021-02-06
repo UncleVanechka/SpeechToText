@@ -43,6 +43,6 @@ body {
     background: #DCF4FF url(misis.svg) no-repeat; /* Путь к фоновому изображению */
 }
 
-#speechTranscriptContainer {
+#speechDownloadContainer {
     margin: 20px 0 0 10px;
 }
