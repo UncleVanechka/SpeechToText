@@ -4,3 +4,6 @@ requests==2.25.1
 Werkzeug==1.0.1
 SpeechRecognition==3.8.1
 Jinja2 ==2.11.3
+nltk ==3.5
+pydub~=0.24.1
+yapf==0.30.0

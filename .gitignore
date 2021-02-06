@@ -21,7 +21,6 @@ dist/
 
 # Maven
 target/
-dist/
 
 # JetBrains IDE
 .idea/
@@ -39,6 +38,9 @@ Thumbs.db
 *.app
 *.exe
 *.war
+venv
+text
+temp
 
 # Large media files
 *.mp4
