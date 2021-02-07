@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Аудио распознавания на Python</title>
+    <title>Speech to text on Python</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
 </head>
 <body>
 <div id="speechContainer">
-    <h1>Загрузить файл</h1>
+    <h1>Download file</h1>
     <form method="post" enctype="multipart/form-data">
         <input type="file" name="file"/>
         <br>
-        <input type="submit" id="submitButton" value="Распознать"/>
+        <input type="submit" id="submitButton" value="Transcribe"/>
     </form>
 
     {% if transcript != "" %}
         <div id="speechTranscriptContainer" class="flex">
-            <h1>Перевести</h1>
+            <h1>Result:</h1>
             <p id="speechText">{{ transcript }}</p>
         </div>
         <div id="speechDownloadContainer">
             <form method="post" enctype="multipart/form-data">
-                <h2><a href="{{ url_for('download') }}">Скачать текстовый файл</a></h2>
+                <h2><a href="{{ url_for('download') }}">Download txt file</a></h2>
             </form>
         </div>
     {% endif %}

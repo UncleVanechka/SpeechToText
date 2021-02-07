@@ -1,7 +1,7 @@
 import os
 import glob
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from pydub import AudioSegment
 from werkzeug.utils import secure_filename
 from flask import send_file
@@ -12,12 +12,6 @@ from config import Config
 app = Flask(__name__, template_folder='templates')
 app.config.from_object(Config)
 app.app_context().push()
-
-@app.route('/download')
-def download():
-    txts = glob.glob('repository/text/*.txt')
-    for txt in txts:
-        return send_file(txt,as_attachment=True)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -64,5 +58,13 @@ def index():
             delete_files('repository/audio_chunks/*')
             create_txt_file(transcript)
             delete_files('repository/mp3/*')
+            redirect(url_for('download'))
 
     return render_template('index.html', transcript=transcript)
+
+
+@app.route('/download')
+def download():
+    txts = glob.glob('repository/text/*.txt')
+    for txt in txts:
+        return send_file(txt, as_attachment=True, conditional=True)
